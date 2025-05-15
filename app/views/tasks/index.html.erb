@@ -1,41 +1,52 @@
-<div class="container mt-5">
+<div class="container my-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1>My Tasks</h1>
-    <%= link_to "Create New Task", new_task_path, class: "btn btn-primary" %>
+    <h1 class="mb-0">My Tasks</h1>
+    <%= link_to "Create New Task", new_task_path, class: "btn btn-primary shadow-sm" %>
   </div>
 
-  <table class="table table-bordered table-hover">
-    <thead class="table-dark">
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Priority</th>
-        <th>Status</th>
-        <th>Deadline</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @tasks.each do |task| %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-dark">
         <tr>
-          <td><%= task.title %></td>
-          <td><%= truncate(task.description, length: 50) %></td>
-          <td>
-            <span class="badge <%= task.priority == 'High' ? 'bg-danger' : task.priority == 'Medium' ? 'bg-warning text-dark' : 'bg-success' %>">
-              <%= task.priority %>
-            </span>
-          </td>
-          <td>
-            <%= task.status == "Completed" ? '<span class="badge bg-success">Completed</span>'.html_safe : '<span class="badge bg-secondary">Pending</span>'.html_safe %>
-          </td>
-          <td><%= task.deadline&.strftime("%d %b %Y") || "No Deadline" %></td>
-          <td>
-            <%= link_to "View", task_path(task), class: "btn btn-info btn-sm" %>
-            <%= link_to "Edit", edit_task_path(task), class: "btn btn-warning btn-sm" %>
-            <%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
-          </td>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Status</th>
+          <th scope="col">Deadline</th>
+          <th scope="col">Actions</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr>
+            <td><%= task.title %></td>
+            <td><%= truncate(task.description, length: 50) %></td>
+            <td>
+              <span class="badge 
+                <%= case task.priority 
+                      when 'High' then 'bg-danger' 
+                      when 'Medium' then 'bg-warning text-dark' 
+                      else 'bg-success' 
+                    end %>">
+                <%= task.priority %>
+              </span>
+            </td>
+            <td>
+              <span class="badge <%= task.status == 'Completed' ? 'bg-success' : 'bg-secondary' %>">
+                <%= task.status %>
+              </span>
+            </td>
+            <td><%= task.deadline&.strftime("%d %b %Y") || "No Deadline" %></td>
+            <td>
+              <div class="btn-group" role="group">
+                <%= link_to "View", task_path(task), class: "btn btn-info btn-sm" %>
+                <%= link_to "Edit", edit_task_path(task), class: "btn btn-warning btn-sm" %>
+                <%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
