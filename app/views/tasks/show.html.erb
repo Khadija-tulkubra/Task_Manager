@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <h2><%= @task.title %></h2>
+  <p><strong>Description:</strong> <%= @task.description %></p>
+  <p><strong>Priority:</strong> <%= @task.priority %></p>
+  <p><strong>Status:</strong> <%= @task.status %></p>
+  <p><strong>Deadline:</strong> <%= @task.deadline.present? ? @task.deadline.strftime("%d %b %Y") : "No Deadline" %></p>
+  
+  <p><strong>Assigned To:</strong> <%= @task.assignee.present? ? @task.assignee.email : "Not Assigned" %></p>
+  <p><strong>Created By:</strong> <%= @task.creator.present? ? @task.creator.email : "Unknown" %></p>
+
+
+
+  <hr>
+
+  
+
+
+
+
+
+  <%= link_to "Back", tasks_path, class: "btn btn-outline-primary mt-3" %>
+</div>

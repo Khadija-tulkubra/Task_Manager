@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h2>Admin Dashboard</h2>
+
+  <h4 class="mt-4">All Users</h4>
+  <table class="table table-striped">
+    <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr></thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role %></td>
+          <td>
+            <%= link_to "Delete", admin_delete_user_path(user), method: :delete, data: { confirm: "Sure?" }, class: "btn btn-danger btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
