@@ -22,7 +22,9 @@ A simple yet functional Task Manager application built with **Ruby on Rails**, u
 
 - 💡 **Frontend + Backend + Database Functional**
 
-- 🚧 **Features Remaining**
+---
+
+##  🚧 **Features Remaining**
 UI Enhancement
 
 Improve the current interface using Bootstrap or a modern frontend framework to provide a more attractive and user-friendly design.
