@@ -1,3 +1,4 @@
+![Screenshot 2025-05-15 200915](https://github.com/user-attachments/assets/6e8bd41e-9ce5-43b1-95bc-07afc8dd35fc)
 # Task Manager
 
 A simple yet functional Task Manager application built with **Ruby on Rails**, using **Devise** for authentication and **PostgreSQL** as the database.
