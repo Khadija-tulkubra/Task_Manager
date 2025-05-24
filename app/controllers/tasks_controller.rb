@@ -34,15 +34,23 @@ end
       end
     end
   
-    # def destroy
-    #   @task.destroy
-    #   redirect_to tasks_path, notice: 'Task was successfully deleted.'
-    # end
-    def destroy
+  
+#    def destroy
+#   @task = Task.find(params[:id])
+#   @task.destroy
+#   redirect_to tasks_path, notice: "Task was successfully deleted."
+# end
+def destroy
   @task = Task.find(params[:id])
-  @task.destroy
-  redirect_to tasks_path, notice: "Task was successfully deleted."
-   end
+  if @task.destroy
+    flash[:notice] = "Task deleted successfully."
+  else
+    flash[:alert] = "Failed to delete task."
+  end
+  redirect_to tasks_path
+end
+
+
 
   
     private
