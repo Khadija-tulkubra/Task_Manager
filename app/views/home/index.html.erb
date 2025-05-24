@@ -1,0 +1,9 @@
+<div class="container d-flex flex-column justify-content-center align-items-center" style="height: 100vh; background: linear-gradient(135deg, #f0f4f8, #d9e2ec); font-family: 'Roboto', sans-serif;">
+  <div class="text-center p-5 bg-white rounded shadow-lg" style="min-width: 350px;">
+    <h1 class="mb-4 text-primary">Welcome to Task Manager</h1>
+    <p class="mb-4 text-muted">Please choose your role to sign in</p>
+    
+    <%= link_to "Admin Sign In", new_admin_session_path, class: "btn btn-outline-primary btn-lg w-100 mb-3" %>
+    <%= link_to "User Sign In", new_user_session_path, class: "btn btn-success btn-lg w-100" %>
+  </div>
+</div>

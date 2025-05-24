@@ -3,3 +3,6 @@ import "@hotwired/turbo-rails"
 import "./controllers" // if you have stimulus controllers
 import "@rails/ujs" // Sometimes included but with turbo this is optional
 import * as bootstrap from "bootstrap"
+import Rails from "@rails/ujs"
+Rails.start()
+
